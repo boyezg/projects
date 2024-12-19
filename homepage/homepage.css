@@ -4,21 +4,61 @@
     box-sizing: border-box;
 }
 
-.header__portrait {
+/* Keyframes for right-to-left animation */
+@keyframes slideLeft {
+    from {
+      transform: translateX(300px); /* Start off-screen to the right */
+    }
+    to {
+      transform: translateX(0); /* End at its original position */
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Apply animations */
+  .header__portrait {
     position: relative;
     width: 300px;
     margin-bottom: 1rem;
-}
-
+    animation: fadeIn 2s ease-in-out; /* Portrait fades in smoothly */
+  }
+  
+/* Updated animation for the portrait image */
 .header__portrait img {
     height: auto;
     margin: auto;
     width: 90%;
     display: block;
-}   
-
-
-h1 {
+    /* filter: brightness(1.2); */
+    animation: slideLeft 2s ease-in-out; /* Image slides from right to left */
+  }
+  .header__portrait img:hover {
+    transform: scale(1.1) rotate(5deg); /* Slight zoom and tilt effect */
+    transition: transform 0.3s ease-in-out; /* Smooth transition for the effect */
+    filter: brightness(1.2); /* Slightly increase brightness */
+    box-shadow: 0 8px 15px rgba(252, 71, 71, 0.97); /* Add a subtle shadow */
+  }
+  
+  h1 {
     position: absolute;
     color: white;
     font-family: "Playfair Display", serif;
@@ -27,54 +67,74 @@ h1 {
     font-size: 3.8rem;
     font-weight: 400;
     left: 1rem;
-}
-
-header {
+    animation: fadeInUp 2.5s ease-in-out; /* Header text fades in and slides up */
+  }
+  
+  header {
     background-image: url(assets/background.jpg);
     background-repeat: no-repeat;
     background-size: 100% 50%;
     margin-bottom: 3rem;
     padding-top: 2rem;
-}
-
-.header__wrapper {
+    animation: fadeIn 3s ease; /* Background fades in */
+  }
+  
+  .header__wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
     max-width: 1300px;
-}
-
-.header__text {
+    animation: fadeInUp 2.5s ease-in-out; /* Wrapper content fades in and slides up */
+  }
+  .header__wrapper #name{
+    /* Multicolor text gradient */
+    /* background: linear-gradient(to right, #fffcfc, #000000, #2ecc71, #3498db, #9b59b6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; */
+    font-family: "Sofia", sans-serif;
+  font-size: 30px;
+  text-shadow: 3px 3px 3px #ababab;
+    
+  }
+  .header__text {
     font-family: "Roboto", sans-serif;
     font-size: 1.2rem;
     color: rgb(108, 108, 108);
     padding: 0 1rem;
     text-align: left;
     margin-bottom: 1rem;
-}
-
-.header__links {
+    animation: fadeInUp 3s ease-in-out; /* Text fades in and slides up */
+  }
+  
+  .header__links {
     display: flex;
     flex-direction: row;
     gap: 1rem;
-}
-
-
-.header__links img {
+    animation: fadeIn 3s ease; /* Links fade in smoothly */
+  }
+  
+  .header__links img {
     height: 2rem;
-}
-
-img {
+    transition: transform 0.3s ease;
+  }
+  
+  .header__links img:hover {
+    transform: scale(1.2); /* Slight zoom on hover */
+  }
+  
+  img {
     height: 20px;
-}
-
-h2 {
+  }
+  
+  h2 {
     text-align: center;
     font-size: 2.5rem;
     font-family: "Playfair Display", serif;
     font-weight: 500;
     font-style: normal;
-}
+    animation: fadeInUp 2s ease-in-out; /* Subheader fades in and slides up */
+  }
+  
 
 .main__cards {
     display: grid;
@@ -181,6 +241,9 @@ main {
     display: flex;
     gap: 0.8rem;
 }
+.card__links a:hover{
+    transform: scale(1.5);
+}
 
 .card__description {
     font-family: "Roboto", sans-serif;
@@ -240,6 +303,10 @@ address {
     gap: 1.5rem;
     margin-bottom: 2rem;
 }
+.footer__links img:hover{
+    transform: scale(1.5);
+}
+
 
 .footer_logo {
     height: 30px;
@@ -252,7 +319,9 @@ address {
     font-family: "Roboto", sans-serif;
     font-style: normal;
 }
-
+.footer__contact:hover{
+    transform: scale(1.1);
+}
 address {
     display: flex;
     flex-direction: column;
@@ -265,6 +334,13 @@ footer picture img {
     height: auto;
     vertical-align: bottom;
 }
+
+footer picture img:hover {
+    transform: scale(1.1) rotate(5deg); /* Slight zoom and tilt effect */
+    transition: transform 0.3s ease-in-out; /* Smooth transition for the effect */
+    filter: brightness(1.2); /* Slightly increase brightness */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* Add a subtle shadow */
+  }
 
 @media (min-width: 700px) {
 
