@@ -237,6 +237,18 @@ main {
     background-color: rgb(159, 216, 12);
 }
 
+.card:nth-of-type(13) .card__screenshot {
+    background-color: rgb(13, 115, 116);
+}
+
+.card:nth-of-type(14) .card__screenshot {
+    background-color: rgb(120, 34, 100);
+}
+
+.card:nth-of-type(15) .card__screenshot {
+    background-color: rgb(159, 216, 12);
+}
+
 .card__links {
     display: flex;
     gap: 0.8rem;
